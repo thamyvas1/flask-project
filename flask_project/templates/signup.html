@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="p-5 mb-4 rounded-3 ">
+    <div class="h-100 p-5 bg-light border rounded-3">
+
+        <form action="{{url_for('thanks')}}">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="userfirst">Fist Name</span>
+                <input type="text" name="first" class="form-control" aria-label="Last Name">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="userlast">Last Name</span>
+                <input type="text" name="last" class="form-control" aria-label="Last Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

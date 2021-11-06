@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="p-5 mb-4 rounded-3 ">
+    <div class="h-100 p-5 bg-light border rounded-3">
+
+        <p>Welcome to Puppy User Name Check</p>
+        <p>Let's see if your User Name is secure!</p>
+        <p>Fill out the form below with a User Name that has these restraints</p>
+        <ul>
+          <li>Must have an upper case letter somewhere.</li>
+          <li>Must have a lower case letter somewhere.</li>
+          <li>Must have a number at the end.</li>
+        </ul>
+
+        <form action="{{url_for('report')}}">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="userfirst">UserName</span>
+                <input type="text" name="user" class="form-control" aria-label="Last Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

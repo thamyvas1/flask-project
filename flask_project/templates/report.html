@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="p-5 mb-4 rounded-3 ">
+    <div class="h-100 p-5 bg-light border rounded-3">
+
+        {% if report %}
+        <p>Your username passed all checks!</p>
+        {% else %}
+        <ul>
+            {% if not lower %}
+            <li>You did not use a lowercase letter</li>
+            {% endif %}
+
+            {% if not upper %}
+            <li>You did not use a uppercase letter</li>
+            {% endif %}
+
+            {% if not numend%}
+            <li>You did not end with a number</li>
+            {% endif %}
+        </ul>
+        <a href="{{ url_for('reporthome')}}">Back</a>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}
