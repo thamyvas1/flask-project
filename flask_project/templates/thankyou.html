@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="p-5 mb-4 rounded-3 ">
+    <div class="h-100 p-5 bg-light border rounded-3">
+
+        <div class="container-fluid py-3">
+
+            {% for mess in get_flashed_messages() %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{mess}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                
+            </div>
+            {% endfor %}
+
+            <h1 class="text-center">Thank you, here is the list you gave us:</h1>
+            <ul>
+                <li>Breed: {{session['breed']}}</li>
+                <br>
+                <li>Neutered: {{session['neutered']}}</li>
+                <br>
+                <li>Mood: {{session['mood']}}</li>
+                <br>
+                <li>Food: {{session['food_choice']}}</li>
+                <br>
+                <li>Feedback: {{session['feedback']}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

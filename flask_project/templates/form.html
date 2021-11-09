@@ -4,19 +4,20 @@
 <div class="p-5 mb-4 rounded-3 ">
     <div class="h-100 p-5 bg-light border rounded-3">
 
-        {% if breed %}
-        The breed you entered is {{breed}}
-        <p></p>
-        Updated in the form below:
-        <p></p>
-        {%else%}
-        Please enter your breed:
-        <p></p>
-        {% endif %}
-
         <form method = "POST">
             {{ form.hidden_tag() }} 
             {{ form.breed.label }} {{ form.breed }}
+            <br>
+            {{ form.neutered.label }} {{ form.neutered }}
+            <br>
+            {{ form.mood.label }} {{ form.mood }}
+            <br>
+            {{ form.food_choice.label }} {{ form.food_choice }}
+            <br>
+            Any Feedback ?
+            <br>
+            {{ form.feedback }}
+            <br>
             {{ form.submit() }}
  
         </form>
