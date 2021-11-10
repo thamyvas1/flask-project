@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-center">Did a pup get adopted?</h1>
+<br>
+<p class="text-center">If so: Please fill out their id to remove them from the database</p>
+
+<form align="center" method = "POST">
+    {{ form.hidden_tag() }} 
+    {{ form.id.label }} {{ form.id }}
+    {{ form.submit() }}
+
+</form>
+
+{% endblock %}
