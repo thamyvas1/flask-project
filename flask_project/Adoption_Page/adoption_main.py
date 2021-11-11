@@ -56,6 +56,9 @@ class Owner(db.Model):
         self.name = name
         self.puppy_id = puppy_id
 
+    def __repr__(self): 
+        return f"Owner name is {self.name}"
+
 
 #####################
 ###VIEW FUNCTIONS ###
@@ -74,13 +77,28 @@ def add():
     if form.validate_on_submit():
 
         pup = form.pup.data
-
         new_pup = Puppy(pup)
         db.session.add(new_pup)
         db.session.commit()
 
         return redirect(url_for('list_pup'))
     return render_template('add.html', form=form)
+
+@app.route('/owner', methods=['GET', 'POST'])
+def addowner():
+
+    form = AddOwnerForm()
+
+    if form.validate_on_submit():
+
+        name = form.name.data
+        pup_id = form.pup_id.data
+        new_owner = Owner(name,pup_id)
+        db.session.add(new_owner)
+        db.session.commit()
+
+        return redirect(url_for('list_pup'))
+    return render_template('owner.html', form=form)
 
 
 @app.route('/list')
@@ -105,20 +123,6 @@ def delete():
         return redirect(url_for('list_pup'))
     return render_template('delete.html', form=form)
 
-@app.route('/owner', methods=['GET', 'POST'])
-def addowner():
-
-    form = AddOwnerForm()
-
-    if form.validate_on_submit():
-
-        id = form.id.data
-        owner = Owner.query.get(id)
-        db.session.add(owner)
-        db.session.commit()
-
-        #return redirect(url_for('list_pup'))
-    return render_template('owner.html', form=form)
 
 
 if __name__ == '__main__':

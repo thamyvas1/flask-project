@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="text-center">Here is the list of all available puppies:</h1>
+<h1>Here is the list of all available puppies:</h1><br>
     <ul>
         {% for pup in puppies %}
           <li>{{pup}}</li>
         {% endfor %}
     </ul>
-</div>
+
 
 {% endblock %}
