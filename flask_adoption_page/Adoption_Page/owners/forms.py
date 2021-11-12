@@ -8,19 +8,8 @@ from wtforms.fields.core import IntegerField
 from wtforms.validators import DataRequired
 
 
+
 class AddForm(FlaskForm):
-
-    pup = StringField("Name of Puppy: ")
-    submit = SubmitField('Add Puppy!')
-
-
-class DelForm(FlaskForm):
-
-    id = IntegerField("Puppy's id to be Removed")
-    submit = SubmitField('Remove Puppy!')
-
-
-class AddOwnerForm(FlaskForm):
 
     name = StringField("Name of Owner: ")
     pup_id = IntegerField("Puppy's id")
